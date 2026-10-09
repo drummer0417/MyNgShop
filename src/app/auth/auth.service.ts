@@ -1,6 +1,5 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { Auth, signInWithEmailAndPassword, signOut, user, getAuth } from '@angular/fire/auth';
-import { User } from './user.model';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -16,8 +15,6 @@ export class AuthService {
   user$ = user(this.auth);
 
   login(email: string, pass: string) {
-    console.log('in login: ' + email + ', ' + pass);
-
     return signInWithEmailAndPassword(this.auth, email, pass)
       .then((result) => {
         this.isLoggedIn.set(true);
@@ -28,7 +25,7 @@ export class AuthService {
         console.log(error);
       })
       .finally(() => {
-        console.log('Klaar');
+        // console.log('Klaar');
       });
   }
 

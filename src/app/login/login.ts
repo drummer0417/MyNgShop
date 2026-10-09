@@ -19,8 +19,6 @@ export class Login {
 
   onLogin() {
     if (this.form.controls.userid.value && this.form.controls.password.value) {
-      console.log('in onLogin');
-      ('in login compo');
       this.authService.login(this.form.controls.userid.value, this.form.controls.password.value);
     }
   }
